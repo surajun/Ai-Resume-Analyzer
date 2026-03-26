@@ -1,0 +1,179 @@
+╔══════════════════════════════════════════════════════════════════╗
+║        AI RESUME ANALYZER — COMPLETE SETUP GUIDE               ║
+║        Step-by-step instructions to run in VS Code             ║
+╚══════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 0 — INSTALL PREREQUISITES (one-time setup)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Install Node.js (v18 or higher)
+   → Download from: https://nodejs.org
+   → Choose "LTS" version
+   → Verify: open terminal and run:  node --version
+
+2. Install PostgreSQL
+   → Download from: https://www.postgresql.org/download/
+   → Install with default settings
+   → Remember the password you set for the "postgres" user
+   → Verify: run:  psql --version
+
+3. Install VS Code
+   → Download from: https://code.visualstudio.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1 — OPEN PROJECT IN VS CODE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Unzip the project folder (resume-analyzer)
+2. Open VS Code
+3. Click: File → Open Folder → select the "resume-analyzer" folder
+4. You should see this structure in the left sidebar:
+
+   resume-analyzer/
+   ├── backend/
+   │   ├── controllers/
+   │   ├── middleware/
+   │   ├── models/
+   │   ├── routes/
+   │   ├── services/
+   │   ├── .env          ← already filled with your API key
+   │   ├── package.json
+   │   ├── server.js
+   │   └── setup.sql
+   └── frontend/
+       ├── public/
+       ├── src/
+       │   ├── context/
+       │   ├── pages/
+       │   ├── services/
+       │   ├── App.jsx
+       │   └── index.js
+       ├── .env          ← already configured
+       └── package.json
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2 — CONFIGURE YOUR DATABASE PASSWORD
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. In VS Code, open:  backend/.env
+2. Find this line:
+      DB_PASSWORD=your_postgres_password_here
+3. Replace "your_postgres_password_here" with your actual PostgreSQL password
+   Example:  DB_PASSWORD=mypassword123
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3 — CREATE THE DATABASE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open a NEW terminal in VS Code:
+   → Menu: Terminal → New Terminal  (or press Ctrl+` )
+
+Run these commands one by one:
+
+   psql -U postgres -c "CREATE DATABASE resume_analyzer;"
+
+If that works you'll see:  CREATE DATABASE
+
+If you get an error about "password", try:
+   PGPASSWORD=yourpassword psql -U postgres -c "CREATE DATABASE resume_analyzer;"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 4 — START THE BACKEND SERVER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+In the same terminal, navigate to the backend folder:
+
+   cd backend
+   npm install
+   npm run dev
+
+You should see:
+   🚀 Server running on port 5000
+   ✅ Database tables initialized
+
+Leave this terminal running. Don't close it.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 5 — START THE FRONTEND
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open a SECOND terminal in VS Code:
+   → Menu: Terminal → New Terminal  (or click the "+" icon in terminal panel)
+
+Navigate to the frontend folder and start it:
+
+   cd frontend
+   npm install
+   npm start
+
+Wait about 30 seconds. Your browser will automatically open:
+   http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 6 — USE THE APP
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Register a new account (click "Create Account")
+2. Upload your resume (PDF or DOCX)
+3. Paste a job description (at least 50 characters)
+4. Click "Analyze Resume with AI"
+5. Wait 10-20 seconds for AI analysis
+6. View your match score, skills, and suggestions!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❌ "Cannot connect to database"
+   → Make sure PostgreSQL is running
+   → Windows: search "Services" → find PostgreSQL → Start
+   → Mac: run:  brew services start postgresql
+   → Check your DB_PASSWORD in backend/.env
+
+❌ "EADDRINUSE port 5000"
+   → Something is already using port 5000
+   → Change PORT=5001 in backend/.env
+   → Change frontend/.env to: REACT_APP_API_URL=http://localhost:5001/api
+
+❌ "npm: command not found"
+   → Node.js is not installed or not in PATH
+   → Reinstall Node.js from https://nodejs.org and restart VS Code
+
+❌ Frontend shows blank white page
+   → Check the backend terminal — make sure it says "running on port 5000"
+   → Make sure frontend/.env has: REACT_APP_API_URL=http://localhost:5000/api
+   → Restart frontend: Ctrl+C then npm start
+
+❌ AI analysis fails / "API error"
+   → The OpenRouter API key is already set in backend/.env
+   → Check your internet connection
+   → The key is: sk-or-v1-8b20c2fe...
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUICK REFERENCE — TERMINAL COMMANDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Every time you want to run the app:
+
+Terminal 1 (Backend):
+   cd resume-analyzer/backend
+   npm run dev
+
+Terminal 2 (Frontend):
+   cd resume-analyzer/frontend
+   npm start
+
+Then open: http://localhost:3000
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+API ENDPOINTS (for testing/reference)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+POST  http://localhost:5000/api/auth/register
+POST  http://localhost:5000/api/auth/login
+POST  http://localhost:5000/api/upload
+POST  http://localhost:5000/api/analyze
+GET   http://localhost:5000/api/results/:id
+GET   http://localhost:5000/api/history
+GET   http://localhost:5000/api/health   ← test this first!
