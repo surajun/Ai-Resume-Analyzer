@@ -337,8 +337,7 @@ App runs at `http://localhost:3000` 🎉
 **Suraj Kumar**
 Full-Stack Developer | Computer Science (Cyber Security)
 
-- 💼 LinkedIn: [your-linkedin-url](#)
-- 💻 GitHub: [@your-username](#)
+- 💼 LinkedIn: [https://www.linkedin.com/in/suraj-kumar-649890218/](#)
 - 📧 Email: surajsolanki8847@gmail.com
 
 ---
