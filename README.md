@@ -44,3 +44,20 @@ This system allows users to upload their resume and a target job description. Th
 ---
 
 ## 🗂️ Project Structure
+resume-analyzer/
+├── backend/
+│   ├── controllers/        # Route logic (auth, upload, analysis)
+│   ├── middleware/         # JWT auth, file upload, error handling
+│   ├── models/             # PostgreSQL connection & schema
+│   ├── routes/             # API route definitions
+│   ├── services/           # AI integration & file parsing logic
+│   ├── server.js           # Application entry point
+│   └── setup.sql           # Database schema
+│
+└── frontend/
+├── src/
+│   ├── context/         # Auth context (global state)
+│   ├── pages/            # Login, Dashboard, Results pages
+│   ├── services/        # Axios API service layer
+│   └── App.jsx           # Route configuration
+└── public/
