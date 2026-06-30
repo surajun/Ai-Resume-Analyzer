@@ -340,11 +340,8 @@ Full-Stack Developer | Computer Science (Cyber Security)
 - 💼 LinkedIn: [https://www.linkedin.com/in/suraj-kumar-649890218/](#)
 - 📧 Email: surajsolanki8847@gmail.com
 
----
+--
 
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
